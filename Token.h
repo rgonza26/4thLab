@@ -55,6 +55,8 @@ public:
     string getTokenString();
     void setNextToken(Token *newToken);
     Token* getNextToken();
+	Token* getLeft();
+	Token* getRight();
 
 	//Binary tree methods
 	//	Operator overloads
@@ -66,6 +68,8 @@ public:
 
 	void addLineNumber(int lineNumber);
 	static void addTokenNodeToBinarySearchTree(Token* &, Token*, int);
+	string getLinesString();
+	static string getBinarySearchTreeLinesStringsInOrder(Token* head);
 };
 
 #endif /* defined(__Lab4__Token__) */

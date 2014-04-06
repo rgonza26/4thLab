@@ -7,14 +7,16 @@
 
 #include "Token.h"
 #include <string>
+#include <sstream>
 
 Token::Token()
 {
     //What code do I need here to initialize everything.
+	//???????????????????????????
 }
 Token::~Token()
 {
-    
+    delete lines;
 }
 void Token::setCode(TokenCode newCode)
 {
@@ -65,7 +67,12 @@ string Token::getTokenString()
 {
     return this->tokenString;
 }
-
+Token* Token::getLeft(){
+	return left;
+}
+Token* Token::getRight(){
+	return right;
+}
 
 //What methods am I missing to implement a binary tree.
 //?????????????????????????
@@ -107,6 +114,30 @@ void Token::addTokenNodeToBinarySearchTree(Token* &headToken, Token* newToken, i
 		}
 	}
 }
+
+string Token::getLinesString(){
+	return lines->ToString_expand();
+}
+
+
+static string getBinarySearchTreeLinesStringsInOrder(Token* head){
+	ostringstream oss;
+
+	oss << getBinarySearchTreeLinesStringsInOrder(head->getLeft());
+
+	if(head != NULL){
+		oss << head->getLinesString() << '\n';
+	}
+
+	oss << getBinarySearchTreeLinesStringsInOrder(head->getRight());
+
+	return oss.str();
+}
+
+
+
+
+
 
 
 
