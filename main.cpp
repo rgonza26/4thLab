@@ -40,11 +40,11 @@ int main(int argc, const char * argv[])
             {
                 
                 ///?????????????????TODO: add identifiers to binary tree and add line numbers where
-			//
+			//the identifier shows up to a linked list stored in the identifier token
                 
               
                 
-            }						the identifier shows up to a linked list stored in the identifier token
+            }	
             delete token;
         }
     }
