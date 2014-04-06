@@ -1,17 +1,17 @@
 
 
-class lineNumberNode{
+class LineNumberNode{
 	public:
 		int val;
-		lineNumberNode* next;
+		LineNumberNode* next;
 
-		lineNumberNode();
-		lineNumberNode(int val);
-		~lineNumberNode();
+		LineNumberNode();
+		LineNumberNode(int val);
+		~LineNumberNode();
 
-		static void addNode(lineNumberNode* &headNode, lineNumberNode* newNode);
+		static void addNode(LineNumberNode* &headNode, LineNumberNode* newNode);
 		std::string ToString();
 		std::string ToString_expand();
-		std::string operator<<(const lineNumberNode &rhs);
+		std::string operator<<(const LineNumberNode &rhs);
 
 };

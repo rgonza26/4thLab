@@ -33,7 +33,7 @@ private:
     string tokenString;
     //What variables and methods am I missing to implement a binary tree.
 	//===================-
-	lineNumberNode* lines;
+	LineNumberNode* lines;
 	Token* left;
 	Token* right;
 	//===================.
@@ -58,11 +58,14 @@ public:
 
 	//Binary tree methods
 	//	Operator overloads
-	bool operator<(const Token &rhs);
-	bool operator<=(const Token &rhs);
-	bool operator==(const Token &rhs);
-	bool operator>=(const Token &rhs);
-	bool operator>(const Token &rhs);
+	bool operator<(const Token &);
+	bool operator<=(const Token &);
+	bool operator==(const Token &);
+	bool operator>=(const Token &);
+	bool operator>(const Token &);
+
+	void addLineNumber(int lineNumber);
+	static void addTokenNodeToBinarySearchTree(Token* &, Token*, int);
 };
 
 #endif /* defined(__Lab4__Token__) */

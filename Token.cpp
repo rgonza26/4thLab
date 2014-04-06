@@ -87,3 +87,29 @@ bool Token::operator>=(const Token &rhs){
 bool Token::operator>(const Token &rhs){
 	return tokenString > rhs.tokenString;
 }
+
+void Token::addLineNumber(int lineNumber){
+	LineNumberNode* n = new LineNumberNode(lineNumber);
+	LineNumberNode::addNode(this->lines, n);
+}
+
+void Token::addTokenNodeToBinarySearchTree(Token* &headToken, Token* newToken, int lineNumber){
+	if(headToken == NULL){
+		headToken = newToken;
+		headToken->addLineNumber(lineNumber);
+	}else{
+		if(*newToken < *headToken){
+			addTokenNodeToBinarySearchTree(headToken->left, newToken, lineNumber);
+		}else if(*newToken > *headToken){
+			addTokenNodeToBinarySearchTree(headToken->right, newToken, lineNumber);
+		}else if(*newToken == *headToken){
+			headToken->addLineNumber(lineNumber);
+		}
+	}
+}
+
+
+
+
+
+
