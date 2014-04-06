@@ -9,8 +9,9 @@ class lineNumberNode{
 		lineNumberNode(int val);
 		~lineNumberNode();
 
-		void addNode(lineNumberNode* newNode);
+		static void addNode(lineNumberNode* &headNode, lineNumberNode* newNode);
 		std::string ToString();
 		std::string ToString_expand();
+		std::string operator<<(const lineNumberNode &rhs);
 
 };

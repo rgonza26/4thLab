@@ -31,6 +31,7 @@ int main(int argc, const char * argv[])
     
     do
     {
+		//token: "Token* token"
         token = scanner.getToken();
         print.printToken(token);
         if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
@@ -41,7 +42,8 @@ int main(int argc, const char * argv[])
         }
     }
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
-    
+	//print line number info for identifier tokens
+
     delete token;
     fclose(source_file);
     return 0;

@@ -6,6 +6,7 @@
 //
 
 #include "Token.h"
+#include <string>
 
 Token::Token()
 {
@@ -64,5 +65,25 @@ string Token::getTokenString()
 {
     return this->tokenString;
 }
+
+
 //What methods am I missing to implement a binary tree.
 //?????????????????????????
+
+//Binary tree methods
+//	Operator overloads
+bool Token::operator<(const Token &rhs){
+	return tokenString < rhs.tokenString;
+}
+bool Token::operator<=(const Token &rhs){
+	return tokenString <= rhs.tokenString;
+}
+bool Token::operator==(const Token &rhs){
+	return tokenString == rhs.tokenString;
+}
+bool Token::operator>=(const Token &rhs){
+	return tokenString >= rhs.tokenString;
+}
+bool Token::operator>(const Token &rhs){
+	return tokenString > rhs.tokenString;
+}

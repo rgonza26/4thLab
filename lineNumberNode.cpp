@@ -18,11 +18,17 @@ lineNumberNode::~lineNumberNode(){
 	}
 }
 
-void lineNumberNode::addNode(lineNumberNode* newNode){
-	if(next == NULL){
-		next = newNode;
+void lineNumberNode::addNode(lineNumberNode *&headNode, lineNumberNode* newNode){
+	if(headNode == NULL){
+		headNode = newNode;
+		return;
 	}else{
-		next->addNode(newNode);
+		lineNumberNode* ptr = headNode;
+		while(ptr->next != NULL){
+			ptr = ptr->next;
+		}
+		ptr->next = newNode;
+		return;
 	}
 }
 
@@ -41,3 +47,7 @@ std::string lineNumberNode::ToString_expand(){
 	return oss.str();
 }
 
+std::string lineNumberNode::operator<<(const lineNumberNode &rhs){
+	lineNumberNode tmp = rhs;
+	return tmp.ToString_expand();
+}
