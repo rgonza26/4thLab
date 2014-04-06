@@ -13,7 +13,7 @@ Token::Token()
 }
 Token::~Token()
 {
-    //What code do I need here to free memory
+    
 }
 void Token::setCode(TokenCode newCode)
 {
@@ -65,3 +65,4 @@ string Token::getTokenString()
     return this->tokenString;
 }
 //What methods am I missing to implement a binary tree.
+//?????????????????????????

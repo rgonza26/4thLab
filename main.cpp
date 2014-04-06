@@ -35,6 +35,8 @@ int main(int argc, const char * argv[])
         print.printToken(token);
         if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
         {
+			//?????????????????TODO: add identifiers to binary tree and add line numbers where
+			//						the identifier shows up to a linked list stored in the identifier token
             delete token;
         }
     }
