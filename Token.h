@@ -10,9 +10,13 @@
 
 #include <iostream>
 #include "common.h"
+<<<<<<< HEAD
 #include "LineNumberNode.h"
 #include "Print.h"
 #include "Scanner.h"
+=======
+#include "LineNumberNode.hpp"
+>>>>>>> FETCH_HEAD
 
 using namespace std;
 
