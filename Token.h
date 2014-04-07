@@ -10,6 +10,9 @@
 
 #include <iostream>
 #include "common.h"
+#include "LineNumberNode.h"
+#include "Print.h"
+#include "Scanner.h"
 
 using namespace std;
 
@@ -31,6 +34,11 @@ private:
     literal;
     string tokenString;
     //What variables and methods am I missing to implement a binary tree.
+	//===================-
+	LineNumberNode* lines;
+	Token* left;
+	Token* right;
+	//===================.
     
 public:
     Token();
@@ -49,6 +57,21 @@ public:
     string getTokenString();
     void setNextToken(Token *newToken);
     Token* getNextToken();
+	Token* getLeft();
+	Token* getRight();
+
+	//Binary tree methods
+	//	Operator overloads
+	bool operator<(const Token &);
+	bool operator<=(const Token &);
+	bool operator==(const Token &);
+	bool operator>=(const Token &);
+	bool operator>(const Token &);
+
+	void addLineNumber(int lineNumber);
+	static void addTokenNodeToBinarySearchTree(Token* &, Token*, int);
+	string getLinesString();
+	static string getBinarySearchTreeLinesStringsInOrder(Token* head);
 };
 
 #endif /* defined(__Lab4__Token__) */

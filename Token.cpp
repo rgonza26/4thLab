@@ -6,14 +6,17 @@
 //
 
 #include "Token.h"
+#include <string>
+#include <sstream>
 
 Token::Token()
 {
     //What code do I need here to initialize everything.
+	//???????????????????????????
 }
 Token::~Token()
 {
-    //What code do I need here to free memory
+    delete lines;
 }
 void Token::setCode(TokenCode newCode)
 {
@@ -64,4 +67,80 @@ string Token::getTokenString()
 {
     return this->tokenString;
 }
+Token* Token::getLeft(){
+	return left;
+}
+Token* Token::getRight(){
+	return right;
+}
+
 //What methods am I missing to implement a binary tree.
+//?????????????????????????
+
+//Binary tree methods
+//	Operator overloads
+bool Token::operator<(const Token &rhs){
+	return tokenString < rhs.tokenString;
+}
+bool Token::operator<=(const Token &rhs){
+	return tokenString <= rhs.tokenString;
+}
+bool Token::operator==(const Token &rhs){
+	return tokenString == rhs.tokenString;
+}
+bool Token::operator>=(const Token &rhs){
+	return tokenString >= rhs.tokenString;
+}
+bool Token::operator>(const Token &rhs){
+	return tokenString > rhs.tokenString;
+}
+
+void Token::addLineNumber(int lineNumber){
+	LineNumberNode* n = new LineNumberNode(lineNumber);
+	LineNumberNode::addNode(this->lines, n);
+}
+
+void Token::addTokenNodeToBinarySearchTree(Token* &headToken, Token* newToken, int lineNumber){
+	if(headToken == NULL){
+		headToken = newToken;
+		headToken->addLineNumber(lineNumber);
+	}else{
+		if(*newToken < *headToken){
+			addTokenNodeToBinarySearchTree(headToken->left, newToken, lineNumber);
+		}else if(*newToken > *headToken){
+			addTokenNodeToBinarySearchTree(headToken->right, newToken, lineNumber);
+		}else if(*newToken == *headToken){
+			headToken->addLineNumber(lineNumber);
+		}
+	}
+}
+
+string Token::getLinesString(){
+	return lines->ToString_expand();
+}
+
+
+static string getBinarySearchTreeLinesStringsInOrder(Token* head){
+	ostringstream oss;
+
+	oss << getBinarySearchTreeLinesStringsInOrder(head->getLeft());
+
+	if(head != NULL){
+		oss << head->getLinesString() << '\n';
+	}
+
+	oss << getBinarySearchTreeLinesStringsInOrder(head->getRight());
+
+	return oss.str();
+}
+
+
+
+
+
+
+
+
+
+
+

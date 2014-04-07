@@ -31,15 +31,26 @@ int main(int argc, const char * argv[])
     
     do
     {
+		//token: "Token* token"
         token = scanner.getToken();
         print.printToken(token);
         if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
         {
+			if(token->getCode() == IDENTIFIER)
+            {
+                
+                ///?????????????????TODO: add identifiers to binary tree and add line numbers where
+			//the identifier shows up to a linked list stored in the identifier token
+                
+              
+                
+            }	
             delete token;
         }
     }
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
-    
+	//print line number info for identifier tokens
+
     delete token;
     fclose(source_file);
     return 0;

@@ -11,6 +11,8 @@
 #include "common.h"
 #include "Token.h"
 #include "Print.h"
+#include "LineNumberNode.h"
+
 
 #define CHAR_TABLE_SIZE 256
 
