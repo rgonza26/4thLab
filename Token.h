@@ -10,10 +10,7 @@
 
 #include <iostream>
 #include "common.h"
-#include "LineNumberNode.h"
-#include "Print.h"
-#include "Scanner.h"
-
+#include "LineNumberNode.hpp"
 
 using namespace std;
 

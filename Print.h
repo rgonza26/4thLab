@@ -11,8 +11,6 @@
 #include <iostream>
 #include "common.h"
 #include "Token.h"
-#include "Scanner.h"
-#include "LineNumberNode.h"
 
 using namespace std;
 

@@ -5,6 +5,9 @@
 //  Created by Bryce Holton.
 //
 
+#pragma warning(disable: 4996)
+
+
 #include "Scanner.h"
 #include "Print.h"
 
@@ -28,6 +31,11 @@ const RwStruct rw_table[9][10] = {
 
 Scanner::Scanner(FILE *source_file, char source_name[], char date[], Print printer) : print(printer)
 {
+	//MY FIXES
+	line_ptr = NULL;
+
+	//END
+
     src_file = source_file;
     strcpy(src_name, source_name);
     strcpy(todays_date, date);
@@ -469,4 +477,8 @@ bool Scanner::isReservedWord(char *str, Token *tok)
         }
     }
     return false;
+}
+
+int Scanner::getLineNumber(){
+	return line_number;
 }

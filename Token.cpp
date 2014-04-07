@@ -5,6 +5,8 @@
 //  Created by Bryce Holton.
 //
 
+#pragma warning(disable: 4996)
+
 #include "Token.h"
 #include <string>
 #include <sstream>
@@ -73,6 +75,7 @@ Token* Token::getLeft(){
 Token* Token::getRight(){
 	return right;
 }
+
 
 //What methods am I missing to implement a binary tree.
 //?????????????????????????

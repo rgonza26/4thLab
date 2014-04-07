@@ -5,6 +5,8 @@
 //  Created by Bryce Holton.
 //
 
+#pragma warning(disable: 4996)
+
 #include "Print.h"
 #include "Token.h"
 

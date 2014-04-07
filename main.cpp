@@ -5,11 +5,14 @@
 //  Created by Bryce Holton.
 //
 
+#pragma warning(disable: 4996)
+
 #include <iostream>
 #include "common.h"
 #include "Print.h"
 #include "Scanner.h"
 #include "Token.h"
+#include <string>
 
 FILE *init_lister(const char *name, char source_file_name[], char dte[]);
 void quit_scanner(FILE *src_file, Token *list);
@@ -28,6 +31,10 @@ int main(int argc, const char * argv[])
     FILE *source_file = init_lister(argv[1], source_name, date);
     Print print(source_name, date);
     Scanner scanner(source_file, source_name, date, print);
+
+	////
+	Token* identifierSearchTreeHead = NULL;
+	////
     
     do
     {
@@ -36,22 +43,26 @@ int main(int argc, const char * argv[])
         print.printToken(token);
         if (token->getCode() != PERIOD && token->getCode() != END_OF_FILE)
         {
-			if(token->getCode() == IDENTIFIER)
-            {
-                
-                ///?????????????????TODO: add identifiers to binary tree and add line numbers where
-			//the identifier shows up to a linked list stored in the identifier token
-                
-              
-                
-            }	
-            delete token;
+			//?????????????????TODO: add identifiers to binary tree and add line numbers where
+			//						the identifier shows up to a linked list stored in the identifier token
+			print.printToken(token);
+			if(token->getCode() == IDENTIFIER){
+				Token::addTokenNodeToBinarySearchTree(identifierSearchTreeHead, token, scanner.getLineNumber());
+			}else if(token->getCode() != PERIOD && token->getCode() != END_OF_FILE){
+				delete token;
+			}
         }
     }
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
 	//print line number info for identifier tokens
+	cout << "\nCross Reference Information\n";
+	cout << "Identifier\t\tLine Numbers\n";
+	cout << "-----------\t\t------------\n";
+	cout << Token::getBinarySearchTreeLinesStringsInOrder(identifierSearchTreeHead);
+	//DONE
 
     delete token;
+	delete identifierSearchTreeHead;
     fclose(source_file);
     return 0;
 }
