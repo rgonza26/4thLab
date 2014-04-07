@@ -1,8 +1,6 @@
-<<<<<<< HEAD
+
 #include "LineNumberNode.h"
-=======
-#include "LineNumberNode.hpp"
->>>>>>> FETCH_HEAD
+
 #include <cstdio>	//for NULL
 #include <sstream>
 
