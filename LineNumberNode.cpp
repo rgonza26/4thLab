@@ -1,4 +1,4 @@
-#include "LineNumberNode.hpp"
+#include "LineNumberNode.h"
 #include <cstdio>	//for NULL
 #include <sstream>
 

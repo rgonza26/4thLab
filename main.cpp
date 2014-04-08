@@ -7,12 +7,11 @@
 
 #pragma warning(disable: 4996)
 
-#include <iostream>
 #include "common.h"
 #include "Print.h"
 #include "Scanner.h"
 #include "Token.h"
-#include <string>
+
 
 FILE *init_lister(const char *name, char source_file_name[], char dte[]);
 void quit_scanner(FILE *src_file, Token *list);
@@ -60,7 +59,7 @@ int main(int argc, const char * argv[])
 	cout << "-----------\t\t------------\n";
 	cout << Token::getBinarySearchTreeLinesStringsInOrder(identifierSearchTreeHead);
 	//DONE
-
+	getchar();
     delete token;
 	delete identifierSearchTreeHead;
     fclose(source_file);

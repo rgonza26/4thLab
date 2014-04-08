@@ -118,21 +118,26 @@ void Token::addTokenNodeToBinarySearchTree(Token* &headToken, Token* newToken, i
 	}
 }
 
-string Token::getLinesString(){
+std::string Token::getLinesString(){
 	return lines->ToString_expand();
 }
 
 
-static string getBinarySearchTreeLinesStringsInOrder(Token* head){
+std::string Token::getBinarySearchTreeLinesStringsInOrder(Token* head){
 	ostringstream oss;
 
-	oss << getBinarySearchTreeLinesStringsInOrder(head->getLeft());
-
 	if(head != NULL){
-		oss << head->getLinesString() << '\n';
+		oss << getBinarySearchTreeLinesStringsInOrder(head->getLeft());
 	}
 
-	oss << getBinarySearchTreeLinesStringsInOrder(head->getRight());
+	if(head != NULL){
+		oss << head->tokenString << "\t\t\t";
+		oss << head->getLinesString() << "\n";
+	}
+	
+	if(head != NULL){
+		oss << getBinarySearchTreeLinesStringsInOrder(head->getRight());
+	}
 
 	return oss.str();
 }

@@ -8,9 +8,8 @@
 #ifndef __Lab4__Token__
 #define __Lab4__Token__
 
-#include <iostream>
 #include "common.h"
-#include "LineNumberNode.hpp"
+#include "LineNumberNode.h"
 
 using namespace std;
 
@@ -68,8 +67,8 @@ public:
 
 	void addLineNumber(int lineNumber);
 	static void addTokenNodeToBinarySearchTree(Token* &, Token*, int);
-	string getLinesString();
-	static string getBinarySearchTreeLinesStringsInOrder(Token* head);
+	std::string getLinesString();
+	static std::string getBinarySearchTreeLinesStringsInOrder(Token* head);
 };
 
 #endif /* defined(__Lab4__Token__) */
