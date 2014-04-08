@@ -13,7 +13,7 @@
 
 typedef struct
 {
-    char *string;
+    const char *string;
     TokenCode token_code;
 }
 RwStruct;

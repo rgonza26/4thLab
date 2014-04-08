@@ -1,5 +1,5 @@
-#ifndef Lab4_LineNumberNode_h
-#define Lab4_LineNumberNode_h
+#ifndef Lab4_LineNumberNode
+#define Lab4_LineNumberNode
 
 using namespace std;
 #include <string>
