@@ -44,7 +44,6 @@ int main(int argc, const char * argv[])
         {
 			//?????????????????TODO: add identifiers to binary tree and add line numbers where
 			//						the identifier shows up to a linked list stored in the identifier token
-			print.printToken(token);
 			if(token->getCode() == IDENTIFIER){
 				Token::addTokenNodeToBinarySearchTree(identifierSearchTreeHead, token, scanner.getLineNumber());
 			}else if(token->getCode() != PERIOD && token->getCode() != END_OF_FILE){
@@ -53,13 +52,14 @@ int main(int argc, const char * argv[])
         }
     }
     while (token->getCode() != PERIOD && token->getCode() != END_OF_FILE);
+
+
 	//print line number info for identifier tokens
 	cout << "\nCross Reference Information\n";
 	cout << "Identifier\t\tLine Numbers\n";
 	cout << "-----------\t\t------------\n";
 	cout << Token::getBinarySearchTreeLinesStringsInOrder(identifierSearchTreeHead);
-	//DONE
-	getchar();
+
     delete token;
 	delete identifierSearchTreeHead;
     fclose(source_file);

@@ -13,8 +13,14 @@
 
 Token::Token()
 {
-    //What code do I need here to initialize everything.
-	//???????????????????????????
+    //What code do I need here to initialize everything?
+	code = NO_TOKEN;
+	type = INTEGER_LIT;
+	literal.integer = 0;
+	tokenString = "";
+	lines = NULL;
+	left = NULL;
+	right = NULL;
 }
 Token::~Token()
 {
