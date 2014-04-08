@@ -131,7 +131,7 @@ char Scanner::getChar(char source_buffer[])
      we should call get source line.  If at the EOF (end of file) we should
      set the character ch to EOF and leave the function.
      */
-    char ch;
+    char ch= '\0';
     
     if (*line_ptr == '\0')
     {

@@ -1,8 +1,9 @@
 #ifndef Lab4_LineNumberNode
 #define Lab4_LineNumberNode
 
-using namespace std;
+
 #include <string>
+using namespace std;
 
 class LineNumberNode{
 	public:
