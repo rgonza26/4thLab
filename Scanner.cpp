@@ -32,7 +32,7 @@ const RwStruct rw_table[9][10] = {
 Scanner::Scanner(FILE *source_file, char source_name[], char date[], Print printer) : print(printer)
 {
 	//MY FIXES
-	line_ptr = NULL;
+	//line_ptr = NULL;
 
 	//END
 
