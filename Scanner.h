@@ -11,6 +11,7 @@
 #include "common.h"
 #include "Token.h"
 #include "Print.h"
+#include <stdlib.h>
 
 #define CHAR_TABLE_SIZE 256
 

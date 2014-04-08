@@ -10,6 +10,7 @@
 
 #include "common.h"
 #include "LineNumberNode.h"
+#include <cstdlib>
 
 using namespace std;
 

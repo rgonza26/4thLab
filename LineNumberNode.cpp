@@ -3,7 +3,7 @@
 #include <sstream>
 
 LineNumberNode::LineNumberNode(){
-	this->val = NULL;
+	this->val = 0;
 	this->next = NULL;
 }
 
